@@ -13,8 +13,14 @@
 #include<linux/i2c-dev.h>
 #define BUFFER_SIZE 19      //0x00 to 0x12
 
+<<<<<<< HEAD
 // the time is in the registers in encoded decimal form
 int bcdToDec(char b) { return (b/16)*10 + (b%16); }
+=======
+int main() {
+	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+
+>>>>>>> branch 'main' of https://github.com/oharam29/EE513_Connected_Embedded
 
 int main(){
    int file;
