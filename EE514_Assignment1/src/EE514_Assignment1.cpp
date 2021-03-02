@@ -37,6 +37,6 @@ int main(){
    close(file);
    */
 
-	DS3231(1, 0x68);
+	DS3231 x = new DS3231(1, 0x68);
    return 0;
 }
