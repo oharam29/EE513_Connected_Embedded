@@ -77,7 +77,7 @@ int DS3231::writeReg(unsigned int regAddr, unsigned char value){
 	return 0;
 }
 
-void DS3231::getDateTime(){
+int DS3231::getDateTime(){
 	int values[7];
 
 	for int(int reg = 0x06; reg >= 0x00; reg--){
@@ -85,5 +85,6 @@ void DS3231::getDateTime(){
 	}
 
 	cout << "read" << endl;
+	return 0;
 }
 
