@@ -1,9 +1,13 @@
+#include"DS3231.h"
 #include<stdio.h>
 #include<fcntl.h>
 #include<sys/ioctl.h>
 #include<unistd.h>
+#include<linux/i2c.h>
 #include<linux/i2c-dev.h>
-#include"DS3231.h"
+#include<string>
+#include<iostream>
+#include<sstream>>
 using namespace std;
 
 #define BUFFER_SIZE 19      //0x00 to 0x12
@@ -32,11 +36,11 @@ int main(){
       perror("Failed to read in the buffer\n");
       return 1;
    }
-   printf("The RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
+	printf("The RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
          bcdToDec(buf[1]), bcdToDec(buf[0]));
-   close(file);
+	close(file);
    */
 
-	DS3231 x = new DS3231(1, 0x68);
-   return 0;
+	DS3231(1, 0x68);
+	return 0;
 }

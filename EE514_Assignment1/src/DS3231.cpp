@@ -1,3 +1,4 @@
+#include"DS3231.h"
 #include<stdio.h>
 #include<fcntl.h>
 #include<sys/ioctl.h>
@@ -7,7 +8,6 @@
 #include<string>
 #include<iostream>
 #include<sstream>
-#include"DS3231.h"
 #define BUFFER_SIZE 19      //0x00 to 0x12
 using namespace std;
 
