@@ -3,12 +3,13 @@
 #include<sys/ioctl.h>
 #include<unistd.h>
 #include<linux/i2c-dev.h>
-#include<DS3231.h>
+#include"DS3231.h"
+using namespace std;
 
 #define BUFFER_SIZE 19      //0x00 to 0x12
 
 // the time is in the registers in encoded decimal form
-int bcdToDec(char b) { return (b/16)*10 + (b%16); }
+//int bcdToDec(char b) { return (b/16)*10 + (b%16); }
 
 int main(){
    /*int file;

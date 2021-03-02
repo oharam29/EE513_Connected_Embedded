@@ -3,7 +3,8 @@
 #include<sys/ioctl.h>
 #include<unistd.h>
 #include<linux/i2c-dev.h>
-#include<DS3231.h>
+#include<string>
+#include"DS3231.h"
 #define BUFFER_SIZE 19      //0x00 to 0x12
 using namespace std;
 
@@ -31,7 +32,6 @@ int DS3231::open(){
 			return 1;
 	}
 	return 0;
-}
 }
 
 
