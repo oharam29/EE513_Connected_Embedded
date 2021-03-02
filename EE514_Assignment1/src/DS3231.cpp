@@ -38,6 +38,7 @@ int DS3231::open()
 		perror("I2C: Failed to connect to the device\n");
 		return 1;
 	}
+	cout << "Connected" << endl;
 	return 0;
 }
 
