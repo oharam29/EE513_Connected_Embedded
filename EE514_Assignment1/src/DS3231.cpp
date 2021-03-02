@@ -77,13 +77,13 @@ int DS3231::writeReg(unsigned int regAddr, unsigned char value){
 	return 0;
 }
 
-string DS3231::getDateTime(){
+void DS3231::getDateTime(){
 	int values[7];
 
 	for int(int reg = 0x06; reg >= 0x00; reg--){
 		values[reg] = bcdToDec(readReg(reg));
 	}
 
-	return "read";
+	cout << "read" << endl;
 }
 
