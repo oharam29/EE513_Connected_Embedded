@@ -2,7 +2,11 @@
 #include<fcntl.h>
 #include<sys/ioctl.h>
 #include<unistd.h>
+#include<linux/i2c.h>
 #include<linux/i2c-dev.h>
+#include<string>
+#include<iostream>
+#include<sstream>
 #define BUFFER_SIZE 19      //0x00 to 0x12
 using namespace std;
 
