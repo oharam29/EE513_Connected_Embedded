@@ -7,7 +7,7 @@
 #include<linux/i2c-dev.h>
 #include<string>
 #include<iostream>
-#include<sstream>>
+#include<sstream>
 using namespace std;
 
 #define BUFFER_SIZE 19      //0x00 to 0x12
@@ -41,8 +41,8 @@ int main(){
 	close(file);
    */
 
-	DS3231(1, 0x68);
-	DS3231::readReg(0x68);
+	DS3231 rtc(1, 0x68);
+	rtc.readReg(0x68);
 
 	return 0;
 }
