@@ -45,13 +45,33 @@ int DS3231::open()
 unsigned char DS3231::readReg(unsigned int regAddr){
 	unsigned char buffer[1];
 	if(::read(this->file, buffer, 1)!=1){
-		perror("I2C: Failed to read any value.\n");
+		perror("Failed to read any value.\n");
 		return 1;
 	}
 	cout << buffer[0] << endl;
 	return buffer[0];
 }
 
+int writeSing(unsigned char value){
+	unsigned char buffer[1];
+	buffer[0] = value;
+	if(::write(this->file, buffer, 1)!=1){
+		perror("Failed to write to device");
+		return 1;
+	}
+	return 0;
+}
 
+int writeReg(unsigned int regAddr, unsigned char value){
+	unsigned char buffer[2];
+	buffer[0] = regAddr;
+	buffer[1] = value;
+
+	if(::write(this->file, buffer, 1)!=1){
+		perror("Failed to write to device");
+		return 1;
+	}
+	return 0;
+}
 
 

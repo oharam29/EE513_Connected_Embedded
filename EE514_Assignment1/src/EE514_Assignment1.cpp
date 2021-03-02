@@ -43,6 +43,7 @@ int main(){
 
 	DS3231 rtc(1, 0x68);
 	rtc.readReg(0x68);
+	rtc.writeReg(0x68, 1);
 
 	return 0;
 }
