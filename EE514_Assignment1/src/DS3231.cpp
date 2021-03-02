@@ -11,6 +11,9 @@
 #define BUFFER_SIZE 19      //0x00 to 0x12
 using namespace std;
 
+int bcdToDec(char b) { return (b/16)*10 + (b%16); }
+
+int DecTObcd(char b){ return ((b / 10) * 16) + (b % 10); }
 
 DS3231::DS3231(unsigned int bus, unsigned int device) {
 	this->file=-1;
@@ -74,4 +77,13 @@ int DS3231::writeReg(unsigned int regAddr, unsigned char value){
 	return 0;
 }
 
+string DS3231::getDateTime(){
+	int values[7];
+
+	for int(int reg = 0x06; reg >= 0x00; reg--){
+		values[reg] = bcdToDec(readReg(reg));
+	}
+
+	return "read";
+}
 
