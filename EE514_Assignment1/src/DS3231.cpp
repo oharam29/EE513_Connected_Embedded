@@ -28,7 +28,7 @@ int DS3231::open()
 	}
 	else name = "/dev/i2c-1";
 
-	if((this->file::open(name.c_str(),O_RDWR)) < 0)
+	if((this->file=::open(name.c_str(),O_RDWR)) < 0)
 	{
 		perror("I2C: failed to open the bus\n");
 		return 1;
