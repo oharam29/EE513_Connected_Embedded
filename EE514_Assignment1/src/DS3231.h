@@ -18,6 +18,7 @@ private:
 public:
 	DS3231(unsigned int bus, unsigned int device);
 	virtual int open();
+	unsigned char readReg(unsigned int regAddr);
 };
 
 #endif /* I2C_H_ */

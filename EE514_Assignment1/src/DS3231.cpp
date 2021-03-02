@@ -17,6 +17,7 @@ DS3231::DS3231(unsigned int bus, unsigned int device) {
 	this->bus = bus;
 	this->device =device;
 	this->open();
+	this->readReg(0x00);
 }
 
 
@@ -41,6 +42,16 @@ int DS3231::open()
 	cout << "Connected" << endl;
 	return 0;
 }
+
+unsigned char DS3231::readReg(unsigned int regAddr){
+	unsigned char buffer[1];
+	if(::read(this->file, buffer, 1)!=1){
+		perror("I2C: Failed to read any value.\n");
+		return 1;
+	}
+	return buffer[0];
+}
+
 
 
 
