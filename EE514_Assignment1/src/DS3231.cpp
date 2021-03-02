@@ -49,6 +49,7 @@ unsigned char DS3231::readReg(unsigned int regAddr){
 		perror("I2C: Failed to read any value.\n");
 		return 1;
 	}
+	cout << buffer[0] << endl;
 	return buffer[0];
 }
 
