@@ -4,6 +4,8 @@
 #include<unistd.h>
 #include<linux/i2c-dev.h>
 #define BUFFER_SIZE 19      //0x00 to 0x12
+using namespace std;
+
 
 class DS3231{
 	unsigned int bus;
