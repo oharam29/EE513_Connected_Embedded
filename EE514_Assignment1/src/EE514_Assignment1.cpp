@@ -3,13 +3,15 @@
 #include<sys/ioctl.h>
 #include<unistd.h>
 #include<linux/i2c-dev.h>
+#include<DS3231.h>
+
 #define BUFFER_SIZE 19      //0x00 to 0x12
 
 // the time is in the registers in encoded decimal form
 int bcdToDec(char b) { return (b/16)*10 + (b%16); }
 
 int main(){
-   int file;
+   /*int file;
    printf("Starting the DS3231 test application\n");
    if((file=open("/dev/i2c-1", O_RDWR)) < 0){
       perror("failed to open the bus\n");
@@ -32,5 +34,8 @@ int main(){
    printf("The RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
          bcdToDec(buf[1]), bcdToDec(buf[0]));
    close(file);
+   */
+
+	DS3231(1, 0x68);
    return 0;
 }
