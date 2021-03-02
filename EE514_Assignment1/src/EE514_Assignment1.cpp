@@ -42,5 +42,7 @@ int main(){
    */
 
 	DS3231(1, 0x68);
+	DS3231::readReg(0x68);
+
 	return 0;
 }
