@@ -17,7 +17,6 @@ DS3231::DS3231(unsigned int bus, unsigned int device) {
 	this->bus = bus;
 	this->device =device;
 	this->open();
-	this->readReg(0x00);
 }
 
 
