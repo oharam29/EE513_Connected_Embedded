@@ -45,7 +45,7 @@ int DS3231::open()
 	return 0;
 }
 
-unsigned char DS3231::readReg(unsigned int regAddr){
+unsigned char DS3231::readReg(unsigned char regAddr){
 	unsigned char buffer[1];
 	if(::read(this->file, buffer, 1)!=1){
 		perror("Failed to read any value.\n");
@@ -65,7 +65,7 @@ int DS3231::write(unsigned char value){
 	return 0;
 }
 
-int DS3231::writeReg(unsigned int regAddr, unsigned char value){
+int DS3231::writeReg(unsigned char regAddr, unsigned char value){
 	unsigned char buffer[2];
 	buffer[0] = regAddr;
 	buffer[1] = value;

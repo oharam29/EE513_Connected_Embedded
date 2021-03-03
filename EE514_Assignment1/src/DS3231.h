@@ -22,11 +22,11 @@ private:
 public:
 	DS3231(unsigned int bus, unsigned int device);
 	virtual int open();
-	unsigned char readReg(unsigned int regAddr);
+	unsigned char readReg(unsigned char regAddr);
 	virtual int write(unsigned char value);
 	virtual int writeReg(unsigned char regAddr, unsigned char value);
 	virtual int getDateTime();
-	void int setDateTime(unsigned int year, unsigned int month, unsigned int day);
+	void setDateTime(unsigned int year, unsigned int month, unsigned int day);
 };
 
 #endif /* I2C_H_ */
