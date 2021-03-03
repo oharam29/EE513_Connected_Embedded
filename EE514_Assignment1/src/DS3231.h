@@ -24,9 +24,9 @@ public:
 	virtual int open();
 	unsigned char readReg(unsigned int regAddr);
 	virtual int write(unsigned char value);
-	virtual int writeReg(unsigned int regAddr, unsigned char value);
+	virtual int writeReg(unsigned char regAddr, unsigned char value);
 	virtual int getDateTime();
-	virtual int setDateTime(unsigned int year, unsigned int month, unsigned int day);
+	void int setDateTime(unsigned int year, unsigned int month, unsigned int day);
 };
 
 #endif /* I2C_H_ */

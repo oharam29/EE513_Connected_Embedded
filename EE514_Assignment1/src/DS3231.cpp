@@ -88,11 +88,9 @@ int DS3231::getDateTime(){
 	return 0;
 }
 
-int DS3231::setDateTime(unsigned int year, unsigned int month, unsigned int day){
+void DS3231::setDateTime(unsigned int year, unsigned int month, unsigned int day){
 	writeReg(0x04, DecTObcd(day));
 	writeReg(0x05, DecTObcd(month));
 	writeReg(0x06, DecTObcd(year-2000));
-
-	return 0;
 }
 
