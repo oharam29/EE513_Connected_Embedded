@@ -55,7 +55,7 @@ unsigned char DS3231::readReg(unsigned int regAddr){
 	return buffer[0];
 }
 
-int DS3231::writeSing(unsigned char value){
+int DS3231::write(unsigned char value){
 	unsigned char buffer[1];
 	buffer[0] = value;
 	if(::write(this->file, buffer, 1)!=1){
