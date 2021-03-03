@@ -45,6 +45,7 @@ int main(){
 	rtc.readReg(0x00);
 	rtc.writeReg(0x00, 1);
 	rtc.readReg(0x00);
+	rtc.setDateTime(2021, 5, 6);
 	rtc.getDateTime();
 	return 0;
 }

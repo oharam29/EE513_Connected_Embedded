@@ -26,6 +26,7 @@ public:
 	virtual int writeSing(unsigned char value);
 	virtual int writeReg(unsigned int regAddr, unsigned char value);
 	virtual int getDateTime();
+	virtual int setDateTime(unsigned int year, unsigned int month, unsigned int day);
 };
 
 #endif /* I2C_H_ */
