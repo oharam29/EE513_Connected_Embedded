@@ -80,7 +80,7 @@ int DS3231::writeReg(unsigned int regAddr, unsigned char value){
 int DS3231::getDateTime(){
 	int values[7];
 
-	for int(int reg = 0x06; reg >= 0x00; reg--){
+	for (int reg = 0x06; reg >= 0x00; reg--){
 		values[reg] = bcdToDec(readReg(reg));
 	}
 
@@ -92,5 +92,7 @@ int DS3231::setDateTime(unsigned int year, unsigned int month, unsigned int day)
 	writeReg(0x04, DecTObcd(day));
 	writeReg(0x05, DecTObcd(month));
 	writeReg(0x06, DecTObcd(year-2000));
+
+	return 0;
 }
 
