@@ -94,12 +94,10 @@ int DS3231::getDateTime(){
 	for (int reg = 0x06; reg >= 0x00; reg--){
 		values[reg] = bcdToDec(readReg(reg));
 	}
-	cout << values[0] << endl;
-	cout << values[1] << endl;
-	cout << values[2] << endl;
-	//cout <<"The RTC time is " + values[2] +" h " +
-       //  values[1] + " m " + values[0] + " s " << endl;
-	cout << "read" << endl;
+
+	cout << "The time is: " << values[2] << ":" << values[1] << ":"  << values[0] << "." <<endl;
+	cout << "The date is: " << value[4] << "/" << values[5] << "/" << values[6] << "." << endl;
+	cout << "Get Time function finished" << endl;
 	return 0;
 }
 
