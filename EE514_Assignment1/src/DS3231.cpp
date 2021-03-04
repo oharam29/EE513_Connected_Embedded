@@ -62,7 +62,7 @@ unsigned char DS3231::readReg(unsigned char regAddr){
 		perror("Failed to read any value.\n");
 		return 1;
 	}
-	cout << "" + buffer[0] << endl;
+	//cout << "" + buffer[0] << endl;
 	return buffer[0];
 }
 
@@ -94,10 +94,11 @@ int DS3231::getDateTime(){
 	for (int reg = 0x06; reg >= 0x00; reg--){
 		values[reg] = bcdToDec(readReg(reg));
 	}
-
-
-	cout <<"The RTC time is " + values[2] +" h " +
-         values[1] + " m " + values[0] + " s " << endl;
+	cout << values[0] << endl;
+	cout << values[1] << endl;
+	cout << values[2] << endl;
+	//cout <<"The RTC time is " + values[2] +" h " +
+       //  values[1] + " m " + values[0] + " s " << endl;
 	cout << "read" << endl;
 	return 0;
 }
