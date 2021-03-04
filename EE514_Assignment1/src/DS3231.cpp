@@ -135,7 +135,7 @@ void DS3231::setDateTime(unsigned int year, unsigned int month, unsigned int day
 	cout << "Time set complete" << endl;
 }
 
-int getTemp(){
+int DS3231::getTemp(){
 	unsigned char buffer[2];
 	unsigned char tempReg = 0x11;
 
