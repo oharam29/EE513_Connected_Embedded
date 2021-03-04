@@ -102,7 +102,10 @@ int DS3231::getDateTime(){
 	return 0;
 }
 
-void DS3231::setDateTime(unsigned int year, unsigned int month, unsigned int day){
+void DS3231::setDateTime(unsigned int year, unsigned int month, unsigned int day, unsigned int hour, unsigned int minute, unsigned int second){
+	writeReg(0x00, DecTObcd(second));
+	writeReg(0x01, DecTObcd(minute));
+	writeReg(0x02, DecTObcd(hour));
 	writeReg(0x04, DecTObcd(day));
 	writeReg(0x05, DecTObcd(month));
 	writeReg(0x06, DecTObcd(year-2000));
