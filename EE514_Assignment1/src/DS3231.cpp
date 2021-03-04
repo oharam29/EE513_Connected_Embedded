@@ -90,6 +90,7 @@ int DS3231::writeReg(unsigned char regAddr, unsigned char value){
 int DS3231::getDateTime(){
 	int values[7];
 
+	cout << "Begin getDateTime() fucntion" << endl;
 	cout << "Reading date and time from DS3231: " << endl;
 
 	for (int reg = 0x06; reg >= 0x00; reg--){
@@ -120,7 +121,7 @@ int DS3231::getDateTime(){
 
 	cout << "The time is: " << values[2] << ":" << values[1] << ":"  << values[0] << "." <<endl;
 	cout << "The date is: " << values[4] << "/" << values[5] << "/" << values[6] << "." << endl;
-	cout << "Get Time function finished" << endl;
+	cout << "getDateTime() finished" << endl;
 	return 0;
 }
 
@@ -136,10 +137,14 @@ void DS3231::setDateTime(unsigned int year, unsigned int month, unsigned int day
 }
 
 int DS3231::getTemp(){
-	unsigned char buffer[2];
 	unsigned char tempReg = 0x11;
+
+	cout << "Begin getTemp() fucntion" << endl;
+	cout << "Reading temp from DS3231: " << endl;
 
 	int x = bcdToDec(readReg(tempReg));
 	cout << "The RTC Temperature is: "<< x << endl;
+
+	cout << "getTemp() finished" << endl;
 	return 0;
 }
