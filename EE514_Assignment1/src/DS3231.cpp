@@ -62,7 +62,6 @@ unsigned char DS3231::readReg(unsigned char regAddr){
 		perror("Failed to read any value.\n");
 		return 1;
 	}
-	//cout << "" + buffer[0] << endl;
 	return buffer[0];
 }
 
@@ -91,9 +90,13 @@ int DS3231::writeReg(unsigned char regAddr, unsigned char value){
 int DS3231::getDateTime(){
 	int values[7];
 
+	cout << "Reading date and time from DS3231: " << endl;
+
 	for (int reg = 0x06; reg >= 0x00; reg--){
 		values[reg] = bcdToDec(readReg(reg));
 	}
+
+	cout << value[3] << endl;
 
 	cout << "The time is: " << values[2] << ":" << values[1] << ":"  << values[0] << "." <<endl;
 	cout << "The date is: " << value[4] << "/" << values[5] << "/" << values[6] << "." << endl;
