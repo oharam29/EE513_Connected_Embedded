@@ -42,8 +42,9 @@ int main(){
    */
 
 	DS3231 rtc(1, 0x68);
-
 	rtc.setDateTime(2021, 5, 6);
 	rtc.readReg(0x04);
+
+	rtc.close();
 	return 0;
 }

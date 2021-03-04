@@ -22,7 +22,6 @@ DS3231::DS3231(unsigned int bus, unsigned int device) {
 	this->open();
 }
 
-
 int DS3231::open()
 {
 	string name;
@@ -45,7 +44,19 @@ int DS3231::open()
 	return 0;
 }
 
+void DS3231::close(){
+	::close(this->file);
+	this->file = -1;
+}
+
+DS3231::~DS3231(){
+	if(file!=-1){
+		this->close();
+	}
+}
+
 unsigned char DS3231::readReg(unsigned char regAddr){
+	this->write(regAddr);
 	unsigned char buffer[1];
 	if(::read(this->file, buffer, 1)!=1){
 		perror("Failed to read any value.\n");
@@ -92,5 +103,7 @@ void DS3231::setDateTime(unsigned int year, unsigned int month, unsigned int day
 	writeReg(0x04, DecTObcd(day));
 	writeReg(0x05, DecTObcd(month));
 	writeReg(0x06, DecTObcd(year-2000));
+
+	cout << "Time set complete" << endl;
 }
 

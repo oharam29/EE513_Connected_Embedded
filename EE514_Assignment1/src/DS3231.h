@@ -21,7 +21,9 @@ private:
 
 public:
 	DS3231(unsigned int bus, unsigned int device);
+	virtual ~DS3231();
 	virtual int open();
+	virtual void close();
 	unsigned char readReg(unsigned char regAddr);
 	virtual int write(unsigned char value);
 	virtual int writeReg(unsigned char regAddr, unsigned char value);
