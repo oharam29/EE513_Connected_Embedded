@@ -96,10 +96,15 @@ int DS3231::getDateTime(){
 		values[reg] = bcdToDec(readReg(reg));
 	}
 
-	cout << value[3] << endl;
+	if(values[3] == 1){
+		cout << "The day of the week is Sunday" << endl;
+	}
+ 	else if(values[3] == 2){
+		cout << "The day of the week is Monday" << endl;
+	}
 
 	cout << "The time is: " << values[2] << ":" << values[1] << ":"  << values[0] << "." <<endl;
-	cout << "The date is: " << value[4] << "/" << values[5] << "/" << values[6] << "." << endl;
+	cout << "The date is: " << values[4] << "/" << values[5] << "/" << values[6] << "." << endl;
 	cout << "Get Time function finished" << endl;
 	return 0;
 }
