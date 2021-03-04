@@ -102,6 +102,21 @@ int DS3231::getDateTime(){
  	else if(values[3] == 2){
 		cout << "The day of the week is Monday" << endl;
 	}
+ 	else if(values[3] == 3){
+		cout << "The day of the week is Tuesday" << endl;
+	}
+ 	else if(values[3] == 4){
+		cout << "The day of the week is Wednesday" << endl;
+	}
+ 	else if(values[3] == 5){
+		cout << "The day of the week is Thursday" << endl;
+	}
+ 	else if(values[3] == 6){
+		cout << "The day of the week is Friday" << endl;
+	}
+ 	else if(values[3] == 7){
+		cout << "The day of the week is Saturday" << endl;
+	}
 
 	cout << "The time is: " << values[2] << ":" << values[1] << ":"  << values[0] << "." <<endl;
 	cout << "The date is: " << values[4] << "/" << values[5] << "/" << values[6] << "." << endl;
@@ -120,3 +135,10 @@ void DS3231::setDateTime(unsigned int year, unsigned int month, unsigned int day
 	cout << "Time set complete" << endl;
 }
 
+int getTemp(){
+	unsigned char buffer[2];
+	unsigned char tempReg = 0x11;
+
+	int x = readReg(tempReg);
+	cout << "The RTC Temperature is: "<< x << endl;
+}

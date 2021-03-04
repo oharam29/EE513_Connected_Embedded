@@ -24,11 +24,15 @@ public:
 	virtual ~DS3231();
 	virtual int open();
 	virtual void close();
+
 	unsigned char readReg(unsigned char regAddr);
 	virtual int write(unsigned char value);
 	virtual int writeReg(unsigned char regAddr, unsigned char value);
+
 	virtual int getDateTime();
 	void setDateTime(unsigned int year, unsigned int month, unsigned int day, unsigned int hour, unsigned int minute, unsigned int second);
+
+	virtual int getTemp();
 };
 
 #endif /* I2C_H_ */
