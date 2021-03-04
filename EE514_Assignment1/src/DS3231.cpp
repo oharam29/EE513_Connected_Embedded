@@ -139,6 +139,7 @@ int getTemp(){
 	unsigned char buffer[2];
 	unsigned char tempReg = 0x11;
 
-	int x = readReg(tempReg);
+	int x = bcdToDec(readReg(tempReg));
 	cout << "The RTC Temperature is: "<< x << endl;
+	return 0;
 }
