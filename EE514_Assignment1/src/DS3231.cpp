@@ -96,8 +96,8 @@ int DS3231::getDateTime(){
 	}
 
 
-	cout <<("The RTC time is %02d:%02d:%02d\n", bcdToDec(values[2]),
-         bcdToDec(values[1]), bcdToDec(values[0])) <<endl;
+	cout <<"The RTC time is " + values[2] +" h " +
+         values[1] + " m " + values[0] + " s " << endl;
 	cout << "read" << endl;
 	return 0;
 }
