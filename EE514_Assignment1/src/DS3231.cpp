@@ -80,7 +80,7 @@ int DS3231::writeReg(unsigned char regAddr, unsigned char value){
 	buffer[0] = regAddr;
 	buffer[1] = value;
 
-	if(::write(this->file, buffer, 1)!=1){
+	if(::write(this->file, buffer, 2)!=2){
 		perror("Failed to write to device");
 		return 1;
 	}
