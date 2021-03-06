@@ -159,7 +159,7 @@ int DS3231::getTemp(){
 	return 0;
 }
 
-virtual int getAlarm(int Alarm){
+int DS3231::getAlarm(int Alarm){
 	int values[5];
 	int seconds;
 	int minutes;
@@ -197,7 +197,7 @@ virtual int getAlarm(int Alarm){
 
 	return 0;
 }
-void setAlarm(int Alarm, unsigned int date, unsigned int day, unsigned int hour, unsigned int minute, unsigned int second){
+void DS3231::setAlarm(int Alarm, unsigned int date, unsigned int day, unsigned int hour, unsigned int minute, unsigned int second){
 
 	cout << "------------------------" << endl;
 	cout << "setAlarm() begin" << endl;
