@@ -207,7 +207,9 @@ int DS3231::getAlarm(int Alarm){
 	if(Alarm == 1){
 		cout << "Alarm " << Alarm << " is set for: " << values[2] << ":" << values[1] << ":" << values[0] << endl;
 	}
-	cout << "Alarm " << Alarm << " is set for: " << values[2] << ":" << values[1] << "on " << values[3] << "/" << values[4] << endl;
+	if(Alarm == 2){
+		cout << "Alarm " << Alarm << " is set for: " << values[2] << ":" << values[1] << "on " << values[3] << "/" << values[4] << endl;
+	}
 
 	return 0;
 }
