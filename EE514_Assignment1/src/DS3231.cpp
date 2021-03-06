@@ -184,34 +184,39 @@ int DS3231::getAlarm(int Alarm){
 	cout << "------------------------" << endl;
 	cout << "getAlarm() begin" << endl;
 	cout << "------------------------" << endl;
+	if(Alarm == 1 || Alarm == 2){
+		if(Alarm == 2){
+			minutes = 0x0B;
+			hours = 0x0C;
+			day = 0x0D;
+			date = 0x0D;
+		}
+		else{
+			seconds = 0x07;
+			minutes = 0x08;
+			hours = 0x09;
+			day = 0x0A;
+			date = 0x0A;
+			values[0] = bcdToDec(readReg(seconds));
+		}
+		values[1] = bcdToDec(readReg(minutes));
+		values[2] = bcdToDec(readReg(hours));
+		values[3] = bcdToDec(readReg(day));
+		values[4] = bcdToDec(readReg(date));
 
-	if(Alarm == 2){
-		minutes = 0x0B;
-		hours = 0x0C;
-		day = 0x0D;
-		date = 0x0D;
+		if(Alarm == 1){
+			cout << "Alarm " << Alarm << " is set for: " << values[2] << ":" << values[1] << ":" << values[0] << endl;
+		}
+		if(Alarm == 2){
+			cout << "Alarm " << Alarm << " is set for: " << values[2] << ":" << values[1] << " on " << values[3] << "/" << values[4] << endl;
+		}
+		return 0;
 	}
 	else{
-		seconds = 0x07;
-		minutes = 0x08;
-		hours = 0x09;
-		day = 0x0A;
-		date = 0x0A;
-		values[0] = bcdToDec(readReg(seconds));
-	}
-	values[1] = bcdToDec(readReg(minutes));
-	values[2] = bcdToDec(readReg(hours));
-	values[3] = bcdToDec(readReg(day));
-	values[4] = bcdToDec(readReg(date));
-
-	if(Alarm == 1){
-		cout << "Alarm " << Alarm << " is set for: " << values[2] << ":" << values[1] << ":" << values[0] << endl;
-	}
-	if(Alarm == 2){
-		cout << "Alarm " << Alarm << " is set for: " << values[2] << ":" << values[1] << "on " << values[3] << "/" << values[4] << endl;
+		cout << "Alarm value must be 1 or 2" << endl;
+		return 1;
 	}
 
-	return 0;
 }
 void DS3231::setAlarm(int Alarm, unsigned int date, unsigned int day, unsigned int hour, unsigned int minute, unsigned int second){
 
