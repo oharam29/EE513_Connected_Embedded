@@ -20,6 +20,10 @@ int main(){
 	rtc.getDateTime();
 	//get temp of rtc module
 	rtc.getTemp();
+	//set alarm 1
+	rtc.setAlarm(1, 30, 4, 7, 30, 24);
+	//get alarm
+	rtc.getAlarm(1);
 
 
 	rtc.close();

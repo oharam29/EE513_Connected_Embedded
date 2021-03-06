@@ -33,6 +33,9 @@ public:
 	void setDateTime(unsigned int year, unsigned int month, unsigned int day, unsigned int hour, unsigned int minute, unsigned int second);
 
 	virtual int getTemp();
+
+	virtual int getAlarm(int Alarm);
+	void setAlarm(int Alarm, unsigned  int date, unsigned int day, unsigned int hour, unsigned int minute, unsigned int second);
 };
 
 #endif /* I2C_H_ */

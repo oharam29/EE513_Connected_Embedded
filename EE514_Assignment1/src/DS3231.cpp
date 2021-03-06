@@ -158,3 +158,63 @@ int DS3231::getTemp(){
 	cout << "getTemp() finished" << endl;
 	return 0;
 }
+
+virtual int getAlarm(int Alarm){
+	int values[5];
+	int seconds;
+	int minutes;
+	int hours;
+	int day;
+	int date;
+
+	cout << "------------------------" << endl;
+	cout << "getAlarm() begin" << endl;
+	cout << "------------------------" << endl;
+
+	if(Alarm == 2){
+		minutes = 0x0B;
+		hours = 0x0C;
+		day = 0x0D;
+		date = 0x0D;
+	}
+	else{
+		seconds = 0x07;
+		minutes = 0x08;
+		hours = 0x09;
+		day = 0x0A;
+		date = 0x0A;
+		values[0] = bcdToDec(readReg(seconds));
+	}
+	values[1] = bcdToDec(readReg(minutes));
+	values[2] = bcdToDec(readReg(hours));
+	values[3] = bcdToDec(readReg(day));
+	values[4] = bcdToDec(readReg(date));
+
+	if(Alarm == 1){
+		cout << "Alarm " << Alarm << " is set for: " << values[2] << ":" << values[1] << ":" << values[0] << endl;
+	}
+	cout << "Alarm " << Alarm << " is set for: " << values[2] << ":" << values[1] << "on " << values[3] << endl;
+
+	return 0;
+}
+void setAlarm(int Alarm, unsigned int date, unsigned int day, unsigned int hour, unsigned int minute, unsigned int second){
+
+	cout << "------------------------" << endl;
+	cout << "setAlarm() begin" << endl;
+	cout << "------------------------" << endl;
+
+	if(Alarm == 1){
+		writeReg(0x07, DecTObcd(second));
+		writeReg(0x08, DecTObcd(minute));
+		writeReg(0x09, DecTObcd(hour));
+		writeReg(0x0A, DecTObcd(day));
+		writeReg(0x0A, DecTObcd(date));
+	}
+	else{
+		writeReg(0x0B, DecTObcd(minute));
+		writeReg(0x0C, DecTObcd(hour));
+		writeReg(0x0D, DecTObcd(day));
+		writeReg(0x0D, DecTObcd(date));
+	}
+
+}
