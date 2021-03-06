@@ -22,8 +22,13 @@ int main(){
 	rtc.getTemp();
 	//set alarm 1
 	rtc.setAlarm(1, 30, 4, 7, 30, 24);
-	//get alarm
+	//get alarm 1
 	rtc.getAlarm(1);
+	//set alarm 2
+	rtc.setAlarm(2, 6, 3, 7, 30, 0);
+	//get alarm 2
+	rtc.getAlarm(2)
+
 
 
 	rtc.close();
