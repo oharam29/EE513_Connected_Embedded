@@ -30,7 +30,7 @@ public:
 	virtual int writeReg(unsigned char regAddr, unsigned char value);
 
 	virtual int getDateTime();
-	virtual int setDateTime(unsigned int year, unsigned int month, unsigned int day, unsigned int hour, unsigned int minute, unsigned int second);
+	virtual int setDateTime(unsigned int year, unsigned int month, unsigned int day, unsigned int DOW,  unsigned int hour, unsigned int minute, unsigned int second);
 
 	virtual int getTemp();
 

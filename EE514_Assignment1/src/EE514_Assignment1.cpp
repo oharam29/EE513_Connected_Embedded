@@ -18,6 +18,10 @@ int main(){
 	rtc.setDateTime(2021, 5, 6,5, 9, 30, 0);
 	//get the new date and time of module
 	rtc.getDateTime();
+	
+	rtc.setDateTime(2022, 1,1,1,23,30,0);
+
+	rtc.getDateTime();
 	//get temp of rtc module
 	rtc.getTemp();
 	//set alarm 1
@@ -27,7 +31,7 @@ int main(){
 	//set alarm 2
 	rtc.setAlarm(2, 6, 3, 7, 30, 0);
 	//get alarm 2
-	rtc.getAlarm(2)
+	rtc.getAlarm(2);
 
 
 
