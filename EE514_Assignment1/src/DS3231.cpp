@@ -126,21 +126,35 @@ int DS3231::getDateTime(){
 	return 0;
 }
 
-void DS3231::setDateTime(unsigned int year, unsigned int month, unsigned int day, unsigned int hour, unsigned int minute, unsigned int second){
+int DS3231::setDateTime(unsigned int year, unsigned int month, unsigned int day, unsigned int DOW, unsigned int hour, unsigned int minute, unsigned int second){
 
 	cout << "------------------------" << endl;
 	cout << "setDateTime() begin" << endl;
 	cout << "------------------------" << endl;
 
+	if(minute > 59 || second > 59){
+		cout << "Error value outside of 0-59 range" << endl;
+	}
+	else{
+		writeReg(0x00, DecTObcd(second));
+		writeReg(0x01, DecTObcd(minute));
+	}
 
-	writeReg(0x00, DecTObcd(second));
-	writeReg(0x01, DecTObcd(minute));
 	writeReg(0x02, DecTObcd(hour));
+	if(DOW > 7){
+		cout << "Error value outside 1-7 range" << endl;
+		return 1;
+	}
+	else{
+		writeReg(0x03, DecTObcd(DOW));
+	}
 	writeReg(0x04, DecTObcd(day));
 	writeReg(0x05, DecTObcd(month));
 	writeReg(0x06, DecTObcd(year-2000));
 
 	cout << "Time set complete" << endl;
+
+	return 0;
 }
 
 int DS3231::getTemp(){

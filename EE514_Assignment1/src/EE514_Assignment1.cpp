@@ -15,7 +15,7 @@ int main(){
 	//get current date and time of module
 	rtc.getDateTime();
 	//set time on the module
-	rtc.setDateTime(2021, 5, 6, 9, 30, 0);
+	rtc.setDateTime(2021, 5, 6,5, 9, 30, 0);
 	//get the new date and time of module
 	rtc.getDateTime();
 	//get temp of rtc module
