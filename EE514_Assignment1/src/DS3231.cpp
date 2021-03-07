@@ -239,3 +239,37 @@ void DS3231::setAlarm(int Alarm, unsigned int date, unsigned int day, unsigned i
 	}
 
 }
+
+void DS3231::readControlByte(int byte){
+	char result;
+	char cmd[2];
+	cmd[0] = 0x0F;
+	cmd[1] = 0x0E;
+
+	if(byte == 1){
+		readReg(cmd[0]);
+	}
+	else if(byte == 2){
+		readReg(cmd[1]);
+	}
+}
+void DS3231::writeControlByte(unsigned char con, int byte){
+	char data1[2];
+	char data2[2];
+
+	data1[0] = 0x0F;
+	data1[1] = con;
+
+	data2[0] = 0x0E;
+	data2[1] = con;
+
+	if(byte == 1){
+		writeReg(data1[0], data1[1]);
+	}
+	else if(byte == 2){
+		writeReg(data2[0], data2[1]);
+	}
+	else{
+		cout << "The parameter value entered must be 1 or 2 " << endl;
+	}
+}

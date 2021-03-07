@@ -36,6 +36,9 @@ public:
 
 	virtual int getAlarm(int Alarm);
 	void setAlarm(int Alarm, unsigned  int date, unsigned int day, unsigned int hour, unsigned int minute, unsigned int second);
+
+	void readControlByte(int byte);
+	void writeControlByte(unsigned char con, int byte);
 };
 
 #endif /* I2C_H_ */
