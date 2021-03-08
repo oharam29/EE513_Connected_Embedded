@@ -160,6 +160,7 @@ int DS3231::setDateTime(unsigned int year, unsigned int month, unsigned int day,
 
 int DS3231::getTemp(){
 	unsigned char tempReg = 0x11;
+	unsigned char tempReg2 = 0x12;
 
 	cout << "------------------------" << endl;
 	cout << "Begin getTemp() fucntion" << endl;
@@ -168,7 +169,9 @@ int DS3231::getTemp(){
 	cout << "Reading temp from DS3231: " << endl;
 
 	int x = bcdToDec(readReg(tempReg));
-	cout << "The RTC Temperature is: "<< x << endl;
+	int y = bcdToDec(readReg(tempReg2));
+
+	cout << "The RTC Temperature is: "<< x << "." << y << endl;
 
 	cout << "getTemp() finished" << endl;
 	return 0;
