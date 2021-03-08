@@ -132,6 +132,7 @@ int DS3231::setDateTime(unsigned int year, unsigned int month, unsigned int day,
 	cout << "setDateTime() begin" << endl;
 	cout << "------------------------" << endl;
 
+	cout << "Setting time and date to: " << hour << ":" << minute << ":" << second << " and " << day << "/" << month << "/" << year << endl;
 	if(minute > 59 || second > 59){
 		cout << "Error value outside of 0-59 range" << endl;
 	}
