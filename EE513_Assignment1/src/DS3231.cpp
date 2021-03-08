@@ -276,7 +276,7 @@ void DS3231::writeControlByte(unsigned char con, int byte){
 
 void DS3231::TriggerAlarm(int Alarm){
 	char data[2];
-	unsigned char status
+	char status
 	data[0] = 0x0F;
 
 	readControlByte(1);
