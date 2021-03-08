@@ -242,7 +242,6 @@ void DS3231::setAlarm(int Alarm, unsigned int date, unsigned int day, unsigned i
 }
 
 void DS3231::readControlByte(int byte){
-	char result;
 	char cmd[2];
 	cmd[0] = 0x0F;
 	cmd[1] = 0x0E;
@@ -273,4 +272,42 @@ void DS3231::writeControlByte(unsigned char con, int byte){
 	else{
 		cout << "The parameter value entered must be 1 or 2 " << endl;
 	}
+}
+
+void DS3231::TriggerAlarm(int Alarm){
+	int AlarmValues[5];
+	int TimeValues[7];
+	int seconds;
+	int minutes;
+	int hours;
+	int day;
+	int date;
+
+	cout << "------------------------" << endl;
+	cout << "TriggerAlarm() begin" << endl;
+	cout << "------------------------" << endl;
+
+	if(Alarm == 2){
+		minutes = 0x0B;
+		hours = 0x0C;
+		day = 0x0D;
+		date = 0x0D;
+	}
+	else{
+		seconds = 0x07;
+		minutes = 0x08;
+		hours = 0x09;
+		day = 0x0A;
+		date = 0x0A;
+		AlarmValues[0] = bcdToDec(readReg(seconds));
+	}
+	AlarmValues[1] = bcdToDec(readReg(minutes));
+	AlarmValues[2] = bcdToDec(readReg(hours));
+	AlarmValues[3] = bcdToDec(readReg(day));
+	AlarmValues[4] = bcdToDec(readReg(date));
+
+	for (int reg = 0x06; reg >= 0x00; reg--){
+		TimeValues[reg] = bcdToDec(readReg(reg));
+	}
+
 }

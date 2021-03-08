@@ -39,6 +39,9 @@ public:
 
 	void readControlByte(int byte);
 	void writeControlByte(unsigned char con, int byte);
+
+	void TriggerAlarm(int Alarm);
+
 };
 
 #endif /* I2C_H_ */
